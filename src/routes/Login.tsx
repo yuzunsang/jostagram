@@ -1,13 +1,13 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Input from "../components/Input";
+import CustomButton from "../components/CustomButton";
 
 const theme = createTheme();
 
@@ -16,10 +16,10 @@ const Logo = styled.div`
   background-color: #ffffff;
 `;
 
-const Login: React.FC = () => {
+export default function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = {
@@ -28,16 +28,12 @@ const Login: React.FC = () => {
     };
 
     try {
-      const response = await axios.post("/login", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post("/login", data);
       console.log(response.data);
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -60,47 +56,15 @@ const Login: React.FC = () => {
             noValidate
             sx={{ mt: 1 }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2, fontSize: 18, fontWeight: "bold" }}
-            >
-              로그인
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              sx={{ mb: 2, fontSize: 18, fontWeight: "bold" }}
-              onClick={() => navigate("/signup")}
-            >
+            <Input type="text" name="username" />
+            <Input type="password" name="password" />
+            <CustomButton type="submit">로그인</CustomButton>
+            <CustomButton type="button" onClick={() => navigate("/signup")}>
               회원가입하기
-            </Button>
+            </CustomButton>
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
   );
-};
-
-export default Login;
+}
