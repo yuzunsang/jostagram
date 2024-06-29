@@ -1,25 +1,31 @@
 import { Button } from "@mui/material";
 
-interface propsValue {
-  type: string;
+interface Props {
+  type: "button" | "submit" | "reset";
+  mtOn?: boolean;
   children: string;
   onClick?: () => void;
 }
 
-interface cssStyle {
+interface CssStyle {
   mt?: number;
   mb: number;
   fontSize: number;
   fontWeight: string;
 }
 
-export default function CustomButton({ type, children, ...props }: propsValue) {
-  const cssClasses: cssStyle = { mb: 2, fontSize: 18, fontWeight: "bold" };
-  if (type === "submit") cssClasses.mt = 3;
+export default function CustomButton({
+  type,
+  mtOn,
+  children,
+  ...props
+}: Props) {
+  const cssClasses: CssStyle = { mb: 2, fontSize: 18, fontWeight: "bold" };
+  if (mtOn) cssClasses.mt = 3;
 
   return (
     <Button
-      type={type === "submit" ? "submit" : "button"}
+      type={type}
       fullWidth
       variant={type === "submit" ? "contained" : "outlined"}
       sx={cssClasses}

@@ -1,25 +1,22 @@
 import { TextField } from "@mui/material";
 
-interface propsValue {
-  type: string;
+interface Props {
+  type: "text" | "email" | "password" | "checkbox" | "image";
+  label: string;
   name: string;
 }
 
-export default function Input({ type, name }: propsValue) {
-  function autoCompleteFormat(name: string): string {
-    return name.split("")[0].toUpperCase() + name.slice(1);
-  }
-
+export default function Input({ type, label, name }: Props) {
   return (
     <TextField
       margin="normal"
       required
       fullWidth
       id={name}
-      label={name}
+      label={label}
       name={name}
       type={type}
-      autoComplete={autoCompleteFormat(name)}
+      autoComplete={type}
     />
   );
 }
