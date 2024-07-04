@@ -1,7 +1,7 @@
-import { Button } from "@mui/material";
+import { Button as MuiButton } from "@mui/material";
 
 interface Props {
-  type: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset";
   mtOn?: boolean;
   children: string;
   onClick?: () => void;
@@ -14,17 +14,12 @@ interface CssStyle {
   fontWeight: string;
 }
 
-export default function CustomButton({
-  type,
-  mtOn,
-  children,
-  ...props
-}: Props) {
+export default function Button({ type, mtOn, children, ...props }: Props) {
   const cssClasses: CssStyle = { mb: 2, fontSize: 18, fontWeight: "bold" };
   if (mtOn) cssClasses.mt = 3;
 
   return (
-    <Button
+    <MuiButton
       type={type}
       fullWidth
       variant={type === "submit" ? "contained" : "outlined"}
@@ -32,6 +27,6 @@ export default function CustomButton({
       {...props}
     >
       {children}
-    </Button>
+    </MuiButton>
   );
 }

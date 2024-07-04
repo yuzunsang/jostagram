@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "nickname": "zunsang",
+    "text": "심심하다..",
+    "heart": 123,
+    "postImgUrl": "",
+    "chat": [
+      {
+        "id": 1,
+        "nickname": "timmy",
+        "imgUrl": "",
+        "text": "날씨 좋은 데 밖에 좀 나가!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nickname": "ikhyeon",
+    "text": "굿모닝",
+    "heart": 234,
+    "postImgUrl": "",
+    "chat": [
+      {
+        "id": 1,
+        "nickname": "timmy",
+        "imgUrl": "",
+        "text": "좋은 아침~"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nickname": "jiseon",
+    "text": "✨",
+    "heart": 345,
+    "postImgUrl": "",
+    "chat": []
+  }
+]

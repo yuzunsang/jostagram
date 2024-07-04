@@ -1,11 +1,10 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline, Box, Container } from "@mui/material";
-import { Logo } from "../styles/Logo";
+import { Input, Button } from "../components";
+import { Logo } from "../styles";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Input from "../components/Input";
-import CustomButton from "../components/CustomButton";
 
 const theme = createTheme();
 
@@ -54,12 +53,12 @@ export default function Login() {
           >
             <Input type="email" label="이메일" name="email" />
             <Input type="password" label="비밀번호" name="password" />
-            <CustomButton type="submit" mtOn>
+            <Button type="submit" mtOn>
               로그인
-            </CustomButton>
-            <CustomButton type="button" onClick={() => navigate("/signup")}>
+            </Button>
+            <Button type="button" onClick={() => navigate("/signup")}>
               회원가입하기
-            </CustomButton>
+            </Button>
           </Box>
         </Box>
       </Container>

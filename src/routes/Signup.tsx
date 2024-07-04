@@ -1,10 +1,8 @@
 import React from "react";
 import { CssBaseline, Grid, Box, Container } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Navbar from "../components/Navbar";
-import CustomButton from "../components/CustomButton";
-import Input from "../components/Input";
-import { Logo } from "../styles/Logo";
+import { Navbar, Button, Input, Before, Space, Text } from "../components";
+import { Logo } from "../styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +33,11 @@ export default function SignUp() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        leftContent={<Before />}
+        centerContent={<Text navText="회원가입" />}
+        rightContent={<Space />}
+      />
       <ThemeProvider theme={defaultTheme}>
         <Logo>
           <h1>Outstagram</h1>
@@ -59,7 +61,7 @@ export default function SignUp() {
             >
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <Input type="email" label="이메일" name="email" />
+                  <Input type="email" label="이메일" name="email" doubleCheck />
                 </Grid>
                 <Grid item xs={12}>
                   <Input type="password" label="비밀번호" name="password" />
@@ -72,12 +74,17 @@ export default function SignUp() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Input type="text" label="닉네임" name="nickname" />
+                  <Input
+                    type="text"
+                    label="닉네임"
+                    name="nickname"
+                    doubleCheck
+                  />
                 </Grid>
               </Grid>
-              <CustomButton type="submit" mtOn>
+              <Button type="submit" mtOn>
                 회원 가입
-              </CustomButton>
+              </Button>
             </Box>
           </Box>
         </Container>

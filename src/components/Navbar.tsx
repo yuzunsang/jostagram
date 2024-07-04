@@ -1,28 +1,36 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import { useNavigate } from "react-router-dom";
+import { AppBar, Box } from "@mui/material";
 import { FlexBetween } from "../styles/Flex";
 
-export default function Navbar() {
-  const navigate = useNavigate();
+interface Props {
+  leftContent: React.ReactNode;
+  centerContent: React.ReactNode;
+  rightContent: React.ReactNode;
+}
 
+// const NAVBAR_HEIGHT = 64;
+
+export default function Navbar({
+  leftContent,
+  centerContent,
+  rightContent,
+}: Props) {
   return (
-    <Box>
-      <AppBar position="sticky">
+    <Box
+      position="sticky"
+      sx={{
+        width: {
+          xs: 375,
+          sm: 500,
+        },
+        top: 0,
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+      }}
+    >
+      <AppBar>
         <FlexBetween>
-          <NavigateBeforeIcon
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate(-1)}
-          />
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              회원가입
-            </Typography>
-          </Toolbar>
-          <NavigateBeforeIcon
-            style={{ visibility: "hidden" }}
-            onClick={() => navigate(-1)}
-          />
+          {leftContent}
+          {centerContent}
+          {rightContent}
         </FlexBetween>
       </AppBar>
     </Box>

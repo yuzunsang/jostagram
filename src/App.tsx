@@ -1,12 +1,16 @@
-import React from "react";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Login, Signup, Home, NotFound, Post } from "./routes";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
-      <h1>메인 페이지</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/posts/*" element={<Post />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
-};
+}
 
 export default App;

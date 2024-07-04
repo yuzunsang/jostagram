@@ -1,0 +1,30 @@
+[
+  {
+    "userid": 1,
+    "nickname": "user01",
+    "email": "user01@test.com",
+    "password": "1234",
+    "imgUrl": "https://drive.google.com/file/d/1qZvR-otY-AcG6e5T7myGP8sYPEsQiAKU/view?usp=drive_link"
+  },
+  {
+    "userid": 2,
+    "nickname": "user02",
+    "email": "user02@test.com",
+    "password": "1234",
+    "imgUrl": "https://drive.google.com/file/d/1qZvR-otY-AcG6e5T7myGP8sYPEsQiAKU/view?usp=drive_link"
+  },
+  {
+    "userid": 3,
+    "nickname": "user03",
+    "email": "user03@test.com",
+    "password": "1234",
+    "imgUrl": "https://drive.google.com/file/d/1qZvR-otY-AcG6e5T7myGP8sYPEsQiAKU/view?usp=drive_link"
+  },
+  {
+    "userid": 4,
+    "nickname": "user04",
+    "email": "user04@test.com",
+    "password": "1234",
+    "imgUrl": "https://drive.google.com/file/d/1qZvR-otY-AcG6e5T7myGP8sYPEsQiAKU/view?usp=drive_link"
+  }
+]

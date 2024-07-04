@@ -1,14 +1,23 @@
-import { TextField } from "@mui/material";
+import React from "react";
+import { TextField, InputAdornment, Button } from "@mui/material";
+import styled from "styled-components";
 
 interface Props {
-  type: "text" | "email" | "password" | "checkbox" | "image";
+  type?: React.HTMLInputTypeAttribute;
   label: string;
   name: string;
+  doubleCheck?: boolean;
 }
 
-export default function Input({ type, label, name }: Props) {
+const CustomTextField = styled(TextField)({
+  "& .MuiInputLabel-asterisk": {
+    display: "none",
+  },
+});
+
+export default function Input({ type, label, name, doubleCheck }: Props) {
   return (
-    <TextField
+    <CustomTextField
       margin="normal"
       required
       fullWidth
@@ -17,6 +26,17 @@ export default function Input({ type, label, name }: Props) {
       name={name}
       type={type}
       autoComplete={type}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            {doubleCheck && (
+              <Button variant="outlined" color="error">
+                중복 확인
+              </Button>
+            )}
+          </InputAdornment>
+        ),
+      }}
     />
   );
 }
