@@ -1,26 +1,19 @@
 import { AppBar, Box } from "@mui/material";
-import { FlexBetween } from "../styles/Flex";
-
-interface Props {
-  leftContent: React.ReactNode;
-  centerContent: React.ReactNode;
-  rightContent: React.ReactNode;
-}
-
-// const NAVBAR_HEIGHT = 64;
+import { FlexBetween } from "../styles";
+import { ContentProps } from "../types";
 
 export default function Navbar({
   leftContent,
   centerContent,
   rightContent,
-}: Props) {
+}: ContentProps) {
   return (
     <Box
       position="sticky"
       sx={{
         width: {
-          xs: 375,
-          sm: 500,
+          sm: 375,
+          lg: 500,
         },
         top: 0,
         zIndex: (theme) => theme.zIndex.drawer + 1,

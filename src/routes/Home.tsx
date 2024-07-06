@@ -34,7 +34,7 @@ export default function Home() {
         centerContent={<Space />}
         rightContent={<AlarmSettings />}
       />
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ mt: 15, mb: 15 }}>
         <CssBaseline />
         {loading && <PostSkeleton />}
         {posts?.map((post, idx) => {

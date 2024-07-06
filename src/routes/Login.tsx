@@ -15,12 +15,10 @@ export default function Login() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
+    console.log(data);
 
     try {
-      const response = await axios.post(
-        "http://localhost:3001/api/users/login",
-        data
-      );
+      const response = await axios.post("http://localhost:5000/users", data);
       if (response.data) {
         alert("로그인에 성공했습니다!");
         navigate("/home");

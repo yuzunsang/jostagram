@@ -26,5 +26,9 @@
     "email": "user04@test.com",
     "password": "1234",
     "imgUrl": "https://drive.google.com/file/d/1qZvR-otY-AcG6e5T7myGP8sYPEsQiAKU/view?usp=drive_link"
+  },
+  {
+    "email": "tester@test.com",
+    "password": "1234"
   }
 ]
