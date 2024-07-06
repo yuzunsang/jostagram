@@ -33,7 +33,6 @@ export default function PostCard({ onSelect, post }: Props) {
         margin: "auto",
         mt: 5,
       }}
-      onClick={() => onSelect(1)}
     >
       <AppBar
         position="static"
@@ -58,6 +57,7 @@ export default function PostCard({ onSelect, post }: Props) {
           backgroundColor: "#e0e0e0",
           position: "relative",
         }}
+        onClick={() => onSelect(post.id)}
       >
         <CardMedia
           component="img"

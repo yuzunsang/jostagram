@@ -7,7 +7,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/posts/*" element={<Post />} />
+      <Route path="/posts/:id" element={<Post />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
