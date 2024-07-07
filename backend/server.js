@@ -23,8 +23,6 @@ app.post("/users", (req, res) => {
     }
     let users = JSON.parse(data);
     let newUser = req.body;
-    console.log(users);
-    console.log(newUser);
 
     // 새로운 사용자 추가
     users.push(newUser);

@@ -21,7 +21,7 @@ export default function SignUp() {
         "http://localhost:3001/api/users/signup",
         data
       );
-      console.log(response);
+
       if (response.data) {
         alert("회원가입에 성공했습니다.");
         navigate("/");
@@ -39,11 +39,11 @@ export default function SignUp() {
         rightContent={<Space />}
       />
       <ThemeProvider theme={defaultTheme}>
-        <Logo>
-          <h1>Outstagram</h1>
-          <h4>Welcome to our Outstagram!</h4>
-        </Logo>
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" sx={{ mt: 15, mb: 15 }}>
+          <Logo>
+            <h1>Outstagram</h1>
+            <h4>Welcome to our Outstagram!</h4>
+          </Logo>
           <CssBaseline />
           <Box
             sx={{
