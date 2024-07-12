@@ -7,6 +7,7 @@ interface Props {
   label: string;
   name: string;
   doubleCheck?: boolean;
+  autoComplete?: "off" | "on";
 }
 
 const CustomTextField = styled(TextField)({
@@ -15,7 +16,13 @@ const CustomTextField = styled(TextField)({
   },
 });
 
-export default function Input({ type, label, name, doubleCheck }: Props) {
+export default function Input({
+  type,
+  label,
+  name,
+  doubleCheck,
+  autoComplete = "off",
+}: Props) {
   return (
     <CustomTextField
       margin="normal"
@@ -25,7 +32,7 @@ export default function Input({ type, label, name, doubleCheck }: Props) {
       label={label}
       name={name}
       type={type}
-      autoComplete={type}
+      autoComplete={autoComplete}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

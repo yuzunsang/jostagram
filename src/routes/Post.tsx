@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Navbar,
   Before,
@@ -10,7 +10,8 @@ import {
 import { useFetch } from "../hooks";
 import { Container, CssBaseline } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { formatDate } from "../utils/formatDate";
 
 import {
   List,
@@ -28,30 +29,29 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 const defaultTheme = createTheme();
 
-const comments = [
-  {
-    id: 1,
-    username: "jiseon",
-    comment: "게시물 잘보고 갑니다~!",
-    time: "2024.04.03 22:07",
-  },
-  {
-    id: 2,
-    username: "user10",
-    comment: "도움됩니다",
-    time: "2024.04.03 22:08",
-  },
-  {
-    id: 3,
-    username: "user190",
-    comment: "별로 도움 안되는데",
-    time: "2024.04.03 22:10",
-  },
-];
-
 export default function Post() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [comments, setComments] = useState([
+    {
+      id: 1,
+      username: "jiseon",
+      comment: "게시물 잘보고 갑니다~!",
+      time: "2024.04.03 22:07",
+    },
+    {
+      id: 2,
+      username: "user10",
+      comment: "도움됩니다",
+      time: "2024.04.03 22:08",
+    },
+    {
+      id: 3,
+      username: "user190",
+      comment: "별로 도움 안되는데",
+      time: "2024.04.03 22:10",
+    },
+  ]);
   const {
     data: posts,
     loading,
@@ -64,6 +64,28 @@ export default function Post() {
   const handleSelectPost = (id: number) => {
     navigate(`/posts/${id}`);
   };
+
+  const newComment = useRef<HTMLInputElement>(null);
+  function handleNewComment(event: React.FormEvent) {
+    event.preventDefault();
+
+    if (!newComment.current) {
+      alert("댓글 입력 후 클릭하세요.");
+    }
+    setComments((prevComments) => {
+      return [
+        ...prevComments,
+        {
+          id: prevComments.length + 1,
+          username: "ㅇㅇ",
+          comment: newComment.current!.value,
+          time: formatDate(new Date()),
+        },
+      ];
+    });
+
+    newComment.current!.value = "";
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -121,8 +143,9 @@ export default function Post() {
             placeholder="댓글을 입력해주세요"
             fullWidth
             sx={{ bgcolor: "white", borderRadius: 1 }}
+            ref={newComment}
           />
-          <IconButton color="primary">
+          <IconButton color="primary" onClick={handleNewComment}>
             <SendIcon />
           </IconButton>
         </Box>

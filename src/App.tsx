@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Login, Signup, Home, NotFound, Post } from "./routes";
+import { Login, Signup, Home, NotFound, Post, EditPost } from "./routes";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
       <Route path="/posts/:id" element={<Post />} />
+      <Route path="/editpost/:id" element={<EditPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

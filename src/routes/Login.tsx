@@ -48,8 +48,18 @@ export default function Login() {
             noValidate
             sx={{ mt: 1 }}
           >
-            <Input type="email" label="이메일" name="email" />
-            <Input type="password" label="비밀번호" name="password" />
+            <Input
+              type="email"
+              label="이메일"
+              name="email"
+              autoComplete="off"
+            />
+            <Input
+              type="password"
+              label="비밀번호"
+              name="password"
+              autoComplete="off"
+            />
             <Button type="submit" mtOn>
               로그인
             </Button>

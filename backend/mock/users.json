@@ -38,5 +38,17 @@
   {
     "email": "qewr@qwer.com",
     "password": "12341234"
+  },
+  {
+    "email": "asdf@asdf.com",
+    "password": "1234"
+  },
+  {
+    "email": "asdf@asdf.com",
+    "password": "1234"
+  },
+  {
+    "email": "asdf@asdf.com",
+    "password": "12341234123412341234"
   }
 ]
