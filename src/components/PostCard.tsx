@@ -20,6 +20,7 @@ import {
 import { Post } from "../types";
 import { Modal } from "../components";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   key?: number;
@@ -28,6 +29,7 @@ interface Props {
 }
 
 export default function PostCard({ onSelect, post }: Props) {
+  const navigate = useNavigate();
   const [like, setLike] = useState(false);
   const [bookmark, setBookmark] = useState(false);
 
@@ -101,7 +103,11 @@ export default function PostCard({ onSelect, post }: Props) {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleDropdownClose}>게시글 수정</MenuItem>
+            <MenuItem
+              onClick={() => navigate(`/editpost/${post.id}`, { state: post })}
+            >
+              게시글 수정
+            </MenuItem>
             <MenuItem onClick={handleShowModal}>게시글 삭제</MenuItem>
           </Menu>
         </AppBar>

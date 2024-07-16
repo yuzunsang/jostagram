@@ -26,12 +26,12 @@ export default function Footer() {
         elevation={3}
       >
         <BottomNavigation showLabels>
-          <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+          <BottomNavigationAction label="홈" icon={<HomeIcon />} />
           <BottomNavigationAction
-            label="Add New Post"
+            label="새 피드 작성"
             icon={<AddCircleOutlineIcon />}
           />
-          <BottomNavigationAction label="Profile" icon={<PersonIcon />} />
+          <BottomNavigationAction label="내 프로필" icon={<PersonIcon />} />
         </BottomNavigation>
       </Paper>
     </Box>
